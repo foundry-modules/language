@@ -25,18 +25,25 @@ $.extend(self, {
 	lang: {},
 
 	add: function(key, val) {
-		self[key] = val;
+
+		if ($.isPlainObject(key)) {
+			$.extend(self.lang, key);
+		} else {
+			self.lang[key] = val;
+		}
 	},
 
 	remove: function(key) {
-		delete self[key];
+		delete self.lang[key];
 	},
 
 	_: function(key) {
-		return self[key] || "";
+		return self.lang[key] || "";
 	},
 
 	sprintf: function() {
+		var key = args[0];
+		args[0] = self.lang[key];
 		return $.sprintf.apply(null, args);
 	}
 });
