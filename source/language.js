@@ -12,12 +12,12 @@
  *
  */
 
-var self = $.language = $.JText = function() {
+var self = $.language = $.JText = function(key) {
 
-	if (args.length < 1) {
+	if (arguments.length < 2) {
 		return self._(key);
 	} else {
-		return self.sprintf.apply(null, args);
+		return self.sprintf.apply(null, arguments);
 	}
 };
 
@@ -42,8 +42,8 @@ $.extend(self, {
 	},
 
 	sprintf: function() {
-		var key = args[0];
-		args[0] = self.lang[key];
-		return $.sprintf.apply(null, args);
+		var key = arguments[0];
+		arguments[0] = self.lang[key];
+		return $.sprintf.apply(null, arguments);
 	}
 });
