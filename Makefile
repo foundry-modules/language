@@ -1,7 +1,7 @@
-all: join wrap-core minify
+all: join-script-files wrap-script minify-script
 
 include ../../build/modules.mk
 
 MODULE = language
-SOURCE_FILES = ${SOURCE_DIR}/sprintf.js \
-${SOURCE_DIR}/${MODULE}.js
+SOURCE_SCRIPT_FILES = ${SOURCE_SCRIPT_FOLDER}/sprintf.js \
+${SOURCE_SCRIPT_FOLDER}/${MODULE}.js
