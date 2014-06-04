@@ -38,7 +38,7 @@ $.extend(self, {
 	},
 
 	_: function(key) {
-		return self.lang[key] || "";
+		return self.lang.hasOwnProperty(key) ? self.lang[key] : key;
 	},
 
 	sprintf: function() {
